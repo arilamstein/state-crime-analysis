@@ -57,6 +57,7 @@ shinyServer(function(input, output) {
         choro$title        = paste0(year, " State Violent Crime Rate")
         choro$show_labels  = FALSE
         choro$legend       = "Crimes per 100,000 People"
+        choro$set_zoom(zoom)
         choro$set_buckets(num_buckets)
         choro$render()
       })
