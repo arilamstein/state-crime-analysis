@@ -7,6 +7,10 @@ shinyUI(fluidPage(
 
   titlePanel("Analaysis of US State Violent Crime Rates (1960-2010)"),
 
+  fluidRow(column(12, includeMarkdown("1.md"))),
+  
+  fluidRow(column(12, includeMarkdown("2.md"))),
+  
   sidebarLayout(
     sidebarPanel(
       sliderInput("year",
@@ -37,10 +41,8 @@ shinyUI(fluidPage(
                   multiple = TRUE)
     ),
 
-    mainPanel(
-      plotOutput("map"),
-      plotOutput("single_hist"),
-      plotOutput("all_hist")
-    )
+    mainPanel(plotOutput("map")),
+    
   )
+  
 ))

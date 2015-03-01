@@ -68,7 +68,7 @@ shinyServer(function(input, output) {
       if (include_dc) {
         boxplot(df_boxplot[, -1], ylab = "Crimes per 100,000 People", main = "State Violent Crime Rate, All Years")
       } else {
-        boxplot(df_boxplot[df_boxplot$region != "district of columbia", -1], ylab = "Crimes per 100,000 People", main = "State Violent Crime Rate, All Years")
+        boxplot(df_boxplot[df_boxplot$region != "district of columbia", -1], ylab = "Crimes per 100,000 People", main = "State Violent Crime Rate, All Years\nExcluding Washington, DC")
       }
     })
     
