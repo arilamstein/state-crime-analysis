@@ -1,4 +1,4 @@
-list.of.packages <- c("choroplethr", "choroplethrMaps", "Quandl", "lubridate")
+list.of.packages <- c("choroplethr", "choroplethrMaps", "Quandl", "lubridate", "reshape2")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
@@ -6,6 +6,7 @@ library(shiny)
 library(choroplethr)
 library(Quandl)
 library(lubridate)
+library(reshape2)
 
 # get and format the full crime dataset from Quandle
 # See https://www.quandl.com/FBI_UCR/USCRIME_TYPE_VIOLENTCRIMERATE-U-S-Crimes-by-crime-Violent-Crime-Rate
@@ -36,6 +37,7 @@ shinyServer(function(input, output) {
     year        = input$year
     show_abb    = input$show_abb
     include_dc  = input$include_dc
+    states      = input$states
     zoom        = NULL
     if (length(input$zoom) > 0)
     {
@@ -71,6 +73,16 @@ shinyServer(function(input, output) {
         boxplot(df_boxplot[df_boxplot$region != "district of columbia", -1], ylab = "Crimes per 100,000 People", main = "State Violent Crime Rate, All Years\nExcluding Washington, DC")
       }
     })
+    
+    output$time_series = renderPlot({
+      cols = c("year", input$states)
+      df = df_quandl[, colnames(df_quandl) %in% cols]
+      meltdf = melt(df,id="year")
+      colnames(meltdf)[2] = "State"
+      ggplot(meltdf, aes(x=year, y=value, colour=State, group=State)) + 
+        geom_line() + 
+        labs(x="Year", y="Crimes per 100,000 People", title="US State Crime Rate Over Time") 
+      })
     
   })
 })

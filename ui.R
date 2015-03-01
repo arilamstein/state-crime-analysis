@@ -5,7 +5,7 @@ data(state.regions, package="choroplethrMaps")
 
 shinyUI(fluidPage(
 
-  titlePanel("Analaysis of US State Violent Crime Rates (1960-2010)"),
+  titlePanel("Analaysis of US State Violent Crime Rates (1960-2010) in R"),
 
   fluidRow(column(12, includeMarkdown("1.md"))),
   
@@ -42,6 +42,22 @@ shinyUI(fluidPage(
     ),
 
     mainPanel(plotOutput("map")),
+    
+  ),
+  
+  fluidRow(column(12, includeMarkdown("3.md"))),
+  
+  sidebarLayout(
+    sidebarPanel(
+      
+      selectInput("states", 
+                  label = "States",
+                  choices = state.regions$region,
+                  selected = c("california", "new york", "texas", "florida"),
+                  multiple = TRUE)
+    ),
+    
+    mainPanel(plotOutput("time_series")),
     
   )
   
