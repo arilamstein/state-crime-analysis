@@ -5,7 +5,7 @@ data(state.regions, package="choroplethrMaps")
 
 shinyUI(fluidPage(
 
-  titlePanel("Analaysis of US State Violent Crime Rates (1960-2010) in R"),
+  titlePanel("Analaysis of US State Violent Crime Rates (1960-2010)"),
 
   fluidRow(column(12, includeMarkdown("1.md"))),
   
