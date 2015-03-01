@@ -1,5 +1,6 @@
 library(shiny)
 library(choroplethrMaps)
+require(markdown)
 
 data(state.regions, package="choroplethrMaps")
 

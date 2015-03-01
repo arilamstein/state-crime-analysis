@@ -1,4 +1,4 @@
-list.of.packages <- c("choroplethr", "choroplethrMaps", "Quandl", "lubridate", "reshape2")
+list.of.packages <- c("choroplethr", "choroplethrMaps", "Quandl", "lubridate", "reshape2", "ggplot2")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
@@ -7,6 +7,7 @@ library(choroplethr)
 library(Quandl)
 library(lubridate)
 library(reshape2)
+library(ggplot2)
 
 # get and format the full crime dataset from Quandle
 # See https://www.quandl.com/FBI_UCR/USCRIME_TYPE_VIOLENTCRIMERATE-U-S-Crimes-by-crime-Violent-Crime-Rate
