@@ -1,4 +1,4 @@
-# An Analysis of US State Historic Crime Rates
+# An Analysis of US Historic Crime Rates
 
 This application contains an interactive analysis of US historic crime rates using the R programming language and the [shiny](http://shiny.rstudio.com/) framework. 
 
