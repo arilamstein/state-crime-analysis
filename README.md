@@ -1,4 +1,11 @@
-# state-crime-analysis
-An analysis of US State Crime Rate data
+# An Analysis of US State Historic Crime Rates in R
 
-This is the source code that generates the app that you can see [here](https://arilamstein.shinyapps.io/state-crime-rate-analysis/).
+This application contains an interactive analysis of US historic crime rates using the R programming language and the [shiny](http://shiny.rstudio.com/) framework. 
+
+You can view it online [here](https://arilamstein.shinyapps.io/state-crime-rate-analysis/), though if you see an error message that means that I have exausted my free monthly quota at [shinyapps.io](http://www.shinyapps.io/). In that case you can install the application yourself by typing the following from an R console:
+
+```
+# install.packages("shiny")
+library(shiny)
+shiny::runGitHub("state-crime-analysis", "arilamstein")
+```
